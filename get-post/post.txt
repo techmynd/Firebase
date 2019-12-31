@@ -1,0 +1,16 @@
+const addIngredient = ingredient => {
+ fetch('url.json',{
+  method: 'POST',
+  body: JSON.stringify(ingredient),
+  headers: { 'Content-Type': 'application/json' }
+ }).then(response => {
+  return response.json();
+ }).then(responseData=> [
+  ...presIngredients, 
+  { id: responseData.name, ...ingredient }
+ ]);
+ });
+};
+
+// for reactjs
+// max reactjs course // hooks section // sending http requests
